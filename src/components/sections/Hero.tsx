@@ -41,10 +41,11 @@ export function Hero() {
           transition={{ duration: 0.5 }}
         >
           <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
-            Hi, I'm <span className="text-primary">Jacob Fallin</span>
+            Hi, I&apos;m <span className="text-primary">Jacob Fallin</span>
           </h1>
-          <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground md:text-xl">
-            Full-Stack Developer specializing in Web3, Cryptocurrency, and Enterprise Solutions. Based in San Francisco.
+          <p className="text-muted-foreground text-lg md:text-xl max-w-[700px]">
+            I&apos;m a passionate software engineer with expertise in full-stack development,
+            specializing in React, Node.js, and cloud technologies.
           </p>
           <p className="mx-auto mt-2 text-sm text-muted-foreground">
             (201) 835-8030 • San Francisco • jakefallin@gmail.com

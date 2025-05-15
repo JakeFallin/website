@@ -29,16 +29,16 @@ export function About() {
             <Card>
               <CardContent className="pt-6">
                 <p className="text-muted-foreground leading-relaxed">
-                  I'm a passionate Full-Stack Developer with a keen eye for creating elegant solutions in the least amount of time. 
+                  I&apos;m a passionate Full-Stack Developer with a keen eye for creating elegant solutions in the least amount of time. 
                   I specialize in building web applications using modern technologies like React, Next.js, and TypeScript.
                 </p>
                 <p className="text-muted-foreground leading-relaxed mt-4">
                   With a strong foundation in both frontend and backend development, I enjoy the entire process of creating 
-                  applications from concept to deployment. I'm particularly interested in building performant, accessible, 
+                  applications from concept to deployment. I&apos;m particularly interested in building performant, accessible, 
                   and user-friendly web experiences.
                 </p>
                 <p className="text-muted-foreground leading-relaxed mt-4">
-                  When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, 
+                  When Im not coding, you can find me exploring new technologies, contributing to open-source projects, 
                   or sharing my knowledge through technical writing.
                 </p>
               </CardContent>
