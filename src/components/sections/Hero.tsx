@@ -3,6 +3,7 @@
 import { Github, Linkedin, Mail, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { ParticlesBackground } from "@/components/ui/particles";
 
 const socialLinks = [
   {
@@ -33,6 +34,9 @@ export function Hero() {
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-background to-muted/20 -z-10" />
       
+      {/* Particles background */}
+      <ParticlesBackground />
+      
       {/* Content */}
       <div className="container px-4 py-32 text-center">
         <motion.div
@@ -40,23 +44,38 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
+          <motion.h1 
+            className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
             Hi, I&apos;m <span className="text-primary">Jacob Fallin</span>
-          </h1>
-          <p className="text-muted-foreground text-lg md:text-xl max-w-[700px] mx-auto">
+          </motion.h1>
+          <motion.p 
+            className="text-muted-foreground text-lg md:text-xl max-w-[700px] mx-auto mt-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
             I&apos;m a passionate software engineer with expertise in full-stack development,
             specializing in React, Node.js, and cloud technologies.
-          </p>
-          <p className="mx-auto mt-2 text-sm text-muted-foreground">
+          </motion.p>
+          <motion.p 
+            className="mx-auto mt-2 text-sm text-muted-foreground"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
             (201) 835-8030 • San Francisco • jakefallin@gmail.com
-          </p>
+          </motion.p>
         </motion.div>
 
         {/* CTA Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
           className="flex flex-col sm:flex-row gap-4 justify-center mt-8"
         >
           <Button size="lg" asChild>
@@ -71,26 +90,32 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
           className="flex justify-center gap-4 mt-8"
         >
-          {socialLinks.map((link) => (
-            <Button
+          {socialLinks.map((link, index) => (
+            <motion.div
               key={link.name}
-              variant="ghost"
-              size="icon"
-              asChild
-              className="hover:text-primary"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
             >
-              <a
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={link.name}
+              <Button
+                variant="ghost"
+                size="icon"
+                asChild
+                className="hover:text-primary"
               >
-                <link.icon className="h-5 w-5" />
-              </a>
-            </Button>
+                <a
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={link.name}
+                >
+                  <link.icon className="h-5 w-5" />
+                </a>
+              </Button>
+            </motion.div>
           ))}
         </motion.div>
       </div>

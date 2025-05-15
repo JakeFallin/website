@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Github } from "lucide-react";
+import { AnimatedSection } from "@/components/ui/animated-section";
 
 const projects = [
   {
@@ -33,40 +34,48 @@ export function Projects() {
   return (
     <section id="projects" className="py-20">
       <div className="container px-4">
-        <h2 className="text-3xl font-bold mb-8">Projects</h2>
+        <AnimatedSection>
+          <h2 className="text-3xl font-bold mb-8">Projects</h2>
+        </AnimatedSection>
         <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-card rounded-lg p-6 shadow-sm"
-            >
-              <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2">
-                <div className="flex items-center gap-2">
-                  <h3 className="text-xl font-semibold">{project.title}</h3>
-                  <a
-                    href={project.githubUrl || "#"}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`text-muted-foreground transition-colors ${project.githubUrl ? 'hover:text-primary cursor-pointer' : 'opacity-50 cursor-not-allowed'}`}
-                    aria-label={`${project.title} GitHub Repository`}
-                    onClick={(e) => !project.githubUrl && e.preventDefault()}
-                  >
-                    <Github className="h-5 w-5" />
-                  </a>
+            <AnimatedSection key={index} delay={index * 0.1}>
+              <motion.div
+                whileHover={{ y: -5 }}
+                className="bg-card rounded-lg p-6 shadow-sm transition-shadow hover:shadow-md"
+              >
+                <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2">
+                  <div className="flex items-center gap-2">
+                    <h3 className="text-xl font-semibold">{project.title}</h3>
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                      aria-label={`${project.title} GitHub Repository`}
+                    >
+                      <Github className="h-5 w-5" />
+                    </a>
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    <p>{project.period}</p>
+                  </div>
                 </div>
-                <div className="text-sm text-muted-foreground">
-                  <p>{project.period}</p>
-                </div>
-              </div>
-              <ul className="mt-4 space-y-2">
-                {project.description.map((item, i) => (
-                  <li key={i} className="text-muted-foreground">• {item}</li>
-                ))}
-              </ul>
-            </motion.div>
+                <ul className="mt-4 space-y-2">
+                  {project.description.map((item, i) => (
+                    <motion.li
+                      key={i}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: i * 0.1 }}
+                      className="text-muted-foreground"
+                    >
+                      • {item}
+                    </motion.li>
+                  ))}
+                </ul>
+              </motion.div>
+            </AnimatedSection>
           ))}
         </div>
       </div>
