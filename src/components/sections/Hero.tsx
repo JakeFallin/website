@@ -43,7 +43,7 @@ export function Hero() {
           <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
             Hi, I&apos;m <span className="text-primary">Jacob Fallin</span>
           </h1>
-          <p className="text-muted-foreground text-lg md:text-xl max-w-[700px]">
+          <p className="text-muted-foreground text-lg md:text-xl max-w-[700px] mx-auto">
             I&apos;m a passionate software engineer with expertise in full-stack development,
             specializing in React, Node.js, and cloud technologies.
           </p>

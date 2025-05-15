@@ -1,11 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Github } from "lucide-react";
 
 const projects = [
   {
     title: "Stevens Shuttle System",
     period: "August 2019 – May 2020",
+    githubUrl: "https://github.com/Stevens-Shuttles", // Add your GitHub URL here
     description: [
       "Worked on a student team to develop a smart scheduling system and interface for my Senior Design Project.",
       "Collected and stored 100+ GB of data from the bus API with AWS Lambda functions.",
@@ -17,6 +19,7 @@ const projects = [
   {
     title: "Ridgewood High School Android Application",
     period: "November 2015 - May 2016",
+    githubUrl: "https://github.com/JakeFallin/RhsApplication", // Add your GitHub URL here
     description: [
       "Led a team of 10 students on a Git managed project, which is still used by over 1500 students each year.",
       "Reported team progress to CS teacher, school principal, and school board.",
@@ -41,8 +44,18 @@ export function Projects() {
               className="bg-card rounded-lg p-6 shadow-sm"
             >
               <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2">
-                <div>
+                <div className="flex items-center gap-2">
                   <h3 className="text-xl font-semibold">{project.title}</h3>
+                  <a
+                    href={project.githubUrl || "#"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`text-muted-foreground transition-colors ${project.githubUrl ? 'hover:text-primary cursor-pointer' : 'opacity-50 cursor-not-allowed'}`}
+                    aria-label={`${project.title} GitHub Repository`}
+                    onClick={(e) => !project.githubUrl && e.preventDefault()}
+                  >
+                    <Github className="h-5 w-5" />
+                  </a>
                 </div>
                 <div className="text-sm text-muted-foreground">
                   <p>{project.period}</p>

@@ -140,7 +140,7 @@ export function Contact() {
                 <CardHeader>
                   <CardTitle>Location</CardTitle>
                   <CardDescription>
-                    Based in Your City, Country
+                    Based in San Francisco, CA
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
